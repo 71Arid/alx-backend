@@ -35,7 +35,7 @@ class Server:
         function are both ints
         """
         assert isinstance(page, int) and isinstance(page_size, int)\
-                and page > 0 and page_size > 0
+            and page > 0 and page_size > 0
         indexes = self.index_range(page, page_size)
         st_ind = int(indexes[0])
         end_ind = int(indexes[1])
