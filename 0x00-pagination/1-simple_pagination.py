@@ -29,6 +29,11 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """
+        get the required number of indexes based on start
+        and end indexes if the arguments passsed into the
+        function are both ints
+        """
         assert isinstance(page, int) and isinstance(page_size, int)\
                 and page > 0 and page_size > 0
         indexes = self.index_range(page, page_size)
