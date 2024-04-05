@@ -23,7 +23,7 @@ class FIFOCache(BaseCaching):
         updates cache_data whic is declared in
         super class
         """
-        if key is None and item is None:
+        if key is None or item is None:
             return
         total_keys = self.cache_data.keys()
         if len(self.cache_data) == super().MAX_ITEMS and key not in total_keys:
