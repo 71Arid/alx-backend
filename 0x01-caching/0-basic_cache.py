@@ -14,10 +14,10 @@ class BasicCache(BaseCaching):
     """
     def put(self, key, item):
         """
-        updates cache_data whic is declared in
+        updates cache_data which is declared in
         super class
         """
-        if key is None and item is None:
+        if key is None or item is None:
             return
         self.cache_data.update({key: item})
 
@@ -27,5 +27,5 @@ class BasicCache(BaseCaching):
         cache_data
         """
         if key is None:
-            return
+            return None
         return self.cache_data.get(key)
