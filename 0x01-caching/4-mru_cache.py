@@ -17,7 +17,7 @@ class MRUCache(BaseCaching):
         overloading init class
         """
         super().__init__()
-        self.least_items = []
+        self.most_items = []
 
     def put(self, key, item):
         """
@@ -26,15 +26,15 @@ class MRUCache(BaseCaching):
         """
         if key is None or item is None:
             return
-        if key not in self.least_items:
-            self.least_items.append(key)
+        if key not in self.most_items:
+            self.most_items.append(key)
         if len(self.cache_data) == super().MAX_ITEMS:
             if key in self.cache_data:
-                index = self.least_items.index(key)
-                rem = self.least_items.pop(index)
-                self.least_items.append(rem)
+                index = self.most_items.index(key)
+                rem = self.most_items.pop(index)
+                self.most_items.append(rem)
             else:
-                list_item = self.least_items.pop(-2)
+                list_item = self.most_items.pop(-2)
                 self.cache_data.pop(list_item)
                 print(f'DISCARD: {list_item}')
         self.cache_data.update({key: item})
@@ -46,8 +46,8 @@ class MRUCache(BaseCaching):
         """
         if key is None:
             return None
-        if key in self.least_items:
-            index = self.least_items.index(key)
-            rem = self.least_items.pop(index)
-            self.least_items.append(rem)
+        if key in self.most_items:
+            index = self.most_items.index(key)
+            rem = self.most_items.pop(index)
+            self.most_items.append(rem)
         return self.cache_data.get(key)
