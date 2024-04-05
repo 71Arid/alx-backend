@@ -24,14 +24,14 @@ class LIFOCache(BaseCaching):
         updates cache_data which is declared in
         super class
         """
-        if key is None and item is None:
+        if key is None or item is None:
             return
         ls = None
         flag = 1
         total_keys = self.cache_data.keys()
         if len(self.cache_data) == super().MAX_ITEMS:
             if key not in total_keys:
-                self.last_item = list(self.cache_data)[3]
+                self.last_item = list(self.cache_data)[len(total_keys) - 1]
                 ls = self.last_item
                 self.cache_data.pop(ls)
             else:
