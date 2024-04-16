@@ -12,7 +12,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    """renders the html page containing the contents"""
+    return render_template('0-index.html')
 
 
 app.run()
