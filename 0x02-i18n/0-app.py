@@ -9,6 +9,7 @@ from flask import Flask, render_template
 # Create a Flask application instance
 app = Flask(__name__)
 
+
 # Define a route for the root URL ('/')
 @app.route('/')
 def index():
@@ -18,6 +19,7 @@ def index():
         str: Rendered HTML page.
     """
     return render_template('0-index.html')
+
 
 # Run the Flask application
 app.run()
