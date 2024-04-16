@@ -6,16 +6,18 @@
 """
 from flask import Flask, render_template
 
-
+# Create a Flask application instance
 app = Flask(__name__)
 
-
+# Define a route for the root URL ('/')
 @app.route('/')
 def index():
-    """renders the html page containing the contents
-    it does so when app.run is called
+    """Renders the HTML page containing the contents.
+
+    Returns:
+        str: Rendered HTML page.
     """
     return render_template('0-index.html')
 
-
+# Run the Flask application
 app.run()
