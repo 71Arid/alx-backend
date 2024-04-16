@@ -13,9 +13,7 @@ app = Flask(__name__)
 # Define a route for the root URL ('/')
 @app.route('/')
 def get_index():
-    """Renders the HTML page containing the contents.
-    Returns:
-        str: Rendered HTML page.
+    """Renders the HTML page containing the contents
     """
     return render_template('0-index.html')
 
