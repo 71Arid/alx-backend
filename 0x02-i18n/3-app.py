@@ -6,7 +6,6 @@ Uses the message IDs home_title and home_header.
 from flask_babel import Babel, gettext, request
 from flask import Flask, render_template
 
-
 app = Flask(__name__)
 babel = Babel(app)
 
