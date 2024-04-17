@@ -13,17 +13,14 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale():
-    """
-    gets the best match from the supported
-    languages
+    """gets the best match from the supported languages
     """
     return request.accept_languages.best_match(["en", "fr"])
 
 
 @app.route('/')
 def get_index():
-    """initializes the paremeters for
-    index.html
+    """initializes the paremeters for index.html
     """
     home_title = gettext("home_title")
     home_header = gettext("home_header")
