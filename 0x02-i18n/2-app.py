@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 Creates a get_locale function with the babel.localeselector decorator.
 """
