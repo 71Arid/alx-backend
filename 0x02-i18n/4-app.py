@@ -19,7 +19,7 @@ def get_locale():
     if lang:
         return lang
     return request.accept_languages.best_match(["en", "fr"])
-   
+
 
 @app.route('/')
 def get_index():
