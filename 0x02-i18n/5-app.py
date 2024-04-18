@@ -2,7 +2,6 @@
 """0-app.py"""
 from flask import Flask, render_template, g
 from flask_babel import Babel, request, gettext
-import logging
 
 
 app = Flask(__name__)
@@ -44,15 +43,17 @@ def get_index():
     home_title = gettext("home_title")
     home_header = gettext("home_header")
     username = g.user['name'] if g.user else None
-    if get_locale() == "fr":
+    locale = get_locale()
+    if locale == "fr":
         if username:
-            welcome_msg = f'Vous êtes connecté en tant que {username}'
+            welcome_msg = f"Vous êtes connecté en tant que {username}."
         else:
             welcome_msg = "Vous n'êtes pas connecté."
-    if username:
-        welcome_msg = f'You are logged in as {username}.'
     else:
-        welcome_msg = 'You are not logged in.'
+        if username:
+            welcome_msg = f"You are logged in as {username}."
+        else:
+            welcome_msg = "You are not logged in."
     return render_template(
         "5-index.html", home_title=home_title, home_header=home_header,
         welcome_msg=welcome_msg
@@ -60,4 +61,4 @@ def get_index():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=8000)
