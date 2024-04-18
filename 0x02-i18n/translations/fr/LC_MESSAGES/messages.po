@@ -26,6 +26,6 @@ msgstr "Bienvenue chez Holberton"
 msgid "home_header"
 msgstr "Bonjour monde!"
 
-#: app.py:79 templates/index.html:10
+
 msgid "current_time_is"
-msgstr "Nous sommes le %(current_time)s."
+msgstr "Nous sommes le {}"

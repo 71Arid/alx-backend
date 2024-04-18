@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """0-app.py"""
 from flask import Flask, render_template, g
-from flask_babel import Babel, request, gettext, format_date
+from flask_babel import Babel, request, gettext, format_datetime
 import pytz
 import datetime as dt
 
@@ -72,12 +72,12 @@ def get_index():
 
     date = dt.datetime.now()
     localized_date = tz.localize(date)
-    formatted_date = format_date(localized_date)
+    current_time = format_datetime(localized_date)
 
     home_title = gettext("home_title")
     home_header = gettext("home_header")
-    current_time_message = gettext("current_time_is")
-    current_time_message = current_time_message.format(formatted_date)
+    current_time_is = gettext("current_time_is")
+    current_time_is = current_time_is.format(current_time)
 
     username = g.user['name'] if g.user else None
 
@@ -93,7 +93,7 @@ def get_index():
             welcome_msg = "You are not logged in."
     return render_template(
         "index.html", home_title=home_title, home_header=home_header,
-        welcome_msg=welcome_msg, current_time=current_time_message
+        welcome_msg=welcome_msg, current_time_is=current_time_is
     )
 
 
