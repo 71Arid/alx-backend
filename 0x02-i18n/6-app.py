@@ -25,15 +25,15 @@ def before_request():
 @babel.localeselector
 def get_locale():
     """gets locale from the headers"""
+    lang = request.args.get("locale")
+    if lang:
+        return lang
     if g.user:
         locale = g.user["locale"]
         if locale in ["en", "fr"]:
             return locale
         else:
             return "fr"
-    lang = request.args.get("locale")
-    if lang:
-        return lang
     return request.accept_languages.best_match(["en", "fr"])
 
 
